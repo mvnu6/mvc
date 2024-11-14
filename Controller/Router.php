@@ -1,5 +1,9 @@
 <?php
-// Charger le contrôleur approprié basé sur le paramètre `page`
+// Inclure les contrôleurs
+include_once 'Controller/AccueilController.php';
+include_once 'Controller/VelosController.php';
+include_once 'Controller/ContactController.php';
+
 $page = $_GET['page'] ?? 'accueil'; // Par défaut, afficher la page d'accueil
 
 switch ($page) {
@@ -14,12 +18,6 @@ switch ($page) {
     case 'contact':
         $controller = new ContactController();
         $controller->index();
-        break;
-    case 'inscription':
-        // Ajoutez ici la logique pour afficher la page d'inscription
-        break;
-    case 'connexion':
-        // Ajoutez ici la logique pour afficher la page de connexion
         break;
     default:
         $controller = new AccueilController();
